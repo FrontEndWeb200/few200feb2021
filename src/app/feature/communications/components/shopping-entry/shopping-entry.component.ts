@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-shopping-entry',
@@ -9,7 +10,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 export class ShoppingEntryComponent implements OnInit {
 
   form: FormGroup;
-
+  @Output() itemAdded = new EventEmitter<string>();
   constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       item: ['', [Validators.required, Validators.maxLength(100)]]
@@ -21,8 +22,10 @@ export class ShoppingEntryComponent implements OnInit {
   }
 
   submit(): void {
-    const message = this.form.valid ? 'It is valid' : 'It is not valid';
-    console.log(message);
-    console.log(this.form.value);
+    if (this.form.valid) {
+      // tell the parent, here is what they added.
+      // no guarantee they are listening.
+      this.itemAdded.emit(this.item.value);
+    }
   }
 }
