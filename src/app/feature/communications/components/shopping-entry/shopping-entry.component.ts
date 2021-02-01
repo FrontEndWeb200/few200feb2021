@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-shopping-entry',
@@ -16,6 +16,7 @@ export class ShoppingEntryComponent implements OnInit {
     });
   }
 
+  get item(): AbstractControl { return this.form.get('item'); }
   ngOnInit(): void {
   }
 

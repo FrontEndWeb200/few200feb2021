@@ -6,6 +6,11 @@
            name="item"
            formControlName="item"
            class="form-control">
+    <div class="alert alert-danger"
+         *ngIf="item.invalid && (item.touched || item.dirty)">
+      <p *ngIf="item.errors?.required">This is required.</p>
+      <p *ngIf="item.errors?.maxlength">That is too many characters!</p>
+    </div>
   </div>
   <button type="submit"
           class="btn btn-primary">Add Item To Your List</button>
