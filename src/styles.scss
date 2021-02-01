@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+$primary: #b8d900;
+$enable-rounded: false;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+
+h2 {
+  color: green;
+}
