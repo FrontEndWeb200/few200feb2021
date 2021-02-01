@@ -1,8 +1,10 @@
-<form>
+<form [formGroup]="form"
+      (ngSubmit)="submit()">
   <div class="form-group">
     <label for="item">Item To Purchase</label>
     <input type="text"
            name="item"
+           formControlName="item"
            class="form-control">
   </div>
   <button type="submit"

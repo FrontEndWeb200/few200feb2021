@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ShoppingListItem } from '../../models';
 
 @Component({
@@ -8,10 +8,8 @@ import { ShoppingListItem } from '../../models';
 })
 export class ShoppingListComponent implements OnInit {
 
-  items: ShoppingListItem[] = [
-    { id: '1', description: 'Beer', purchased: false },
-    { id: '2', description: 'Ice Cream', purchased: true }
-  ];
+  @Input() caption = 'Your List of Stuff To Buy';
+  @Input() items: ShoppingListItem[] = [];
   constructor() { }
 
   ngOnInit(): void {
