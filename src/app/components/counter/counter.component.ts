@@ -29,4 +29,7 @@ export class CounterComponent implements OnInit {
     this.store.dispatch(actions.countDecremented());
   }
 
+  reset(): void {
+    this.store.dispatch(actions.countReset());
+  }
 }
