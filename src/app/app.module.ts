@@ -8,7 +8,9 @@ import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CommunicationsModule } from './feature/communications/communications.module';
 import { CounterComponent } from './components/counter/counter.component';
-
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import { CounterComponent } from './components/counter/counter.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommunicationsModule
+    CommunicationsModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [],
   bootstrap: [AppComponent]
