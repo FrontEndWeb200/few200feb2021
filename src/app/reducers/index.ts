@@ -33,7 +33,7 @@ const selectCountCurrent = createSelector(
 //   return state.counter.current;
 // }
 
-export const getCurrentCount = createSelector(
+export const selectGetCurrentCount = createSelector(
   selectCountCurrent,
   c => c
 );

@@ -3,18 +3,24 @@ import * as actions from '../actions/counter.actions';
 
 export interface CounterState {
   current: number;
+  by: number;
 }
 
 const initialState: CounterState = {
-  current: 0
+  current: 0,
+  by: 1
 };
 
 const myReducer = createReducer(
   initialState,
-  on(actions.countIncremented, (s) => ({ current: s.current + 1 })),
-  on(actions.countDecremented, (s) => ({ current: s.current - 1 })),
-  // on(actions.countReset, () => ({ current: 0 }))
-  on(actions.countReset, () => initialState)
+  on(actions.countIncremented, (s) => ({ ...s, current: s.current + s.by })),
+  on(actions.countDecremented, (s) => ({ ...s, current: s.current - s.by })),
+  on(actions.countReset, () => initialState),
+  on(actions.countBySet, (s, a) => ({ ...s, by: a.by }))
+  // on(actions.countBySet, (state, action) => {
+  //   state.by = action.by;
+  //   return state;
+  // })
 );
 // reducer(currentState, action) => newState
 export function reducer(state: CounterState = initialState, action: Action): CounterState {
