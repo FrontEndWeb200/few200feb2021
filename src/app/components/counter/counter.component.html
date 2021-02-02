@@ -1,7 +1,7 @@
 <div>
   <button (click)="decrement()"
           class="btn btn-primary">-</button>
-  <span>{{ current }}</span>
+  <span>{{ current$ | async }}</span>
   <button (click)="increment()"
           class="btn btn-primary">+</button>
 </div>
