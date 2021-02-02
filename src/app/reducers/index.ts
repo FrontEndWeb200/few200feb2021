@@ -33,6 +33,11 @@ const selectCountCurrent = createSelector(
 //   return state.counter.current;
 // }
 
+export const selectCounterBy = createSelector(
+  selectCounterBranch,
+  b => b.by
+);
+
 export const selectGetCurrentCount = createSelector(
   selectCountCurrent,
   c => c
@@ -53,5 +58,6 @@ export const selectCounterResetDisabled = createSelector(
 // }
 export const selectCountDecrementDisabled = createSelector(
   selectCountCurrent,
-  c => c === 0
+  selectCounterBy,
+  (c, b) => (c - b) < 0
 );
