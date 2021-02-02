@@ -14,11 +14,11 @@ export class CounterComponent implements OnInit {
   }
 
   increment(): void {
-    this.current += 1;
+
   }
 
   decrement(): void {
-    this.current -= 1;
+
   }
 
 }
