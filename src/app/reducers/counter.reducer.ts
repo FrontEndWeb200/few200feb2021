@@ -13,6 +13,7 @@ const myReducer = createReducer(
   initialState,
   on(actions.countIncremented, (s) => ({ current: s.current + 1 })),
   on(actions.countDecremented, (s) => ({ current: s.current - 1 })),
+  // on(actions.countReset, () => ({ current: 0 }))
   on(actions.countReset, () => initialState)
 );
 // reducer(currentState, action) => newState
