@@ -6,14 +6,17 @@ import { ShoppingListComponent } from './components/shopping-list/shopping-list.
 import { ShoppingEntryComponent } from './components/shopping-entry/shopping-entry.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ShoppingDataService } from './services/shopping-data.service';
+import { LhsComponent } from './components/lhs/lhs.component';
+import { RhsComponent } from './components/rhs/rhs.component';
+import { MessageService } from './services/message.service';
 
 @NgModule({
-  declarations: [CommunicationsComponent, ShoppingComponent, ShoppingListComponent, ShoppingEntryComponent],
+  declarations: [CommunicationsComponent, ShoppingComponent, ShoppingListComponent, ShoppingEntryComponent, LhsComponent, RhsComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule
   ],
   exports: [CommunicationsComponent],
-  providers: [ShoppingDataService]
+  providers: [ShoppingDataService, MessageService]
 })
 export class CommunicationsModule { }
