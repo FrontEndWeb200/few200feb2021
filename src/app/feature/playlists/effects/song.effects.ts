@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import * as actions from '../actions/song.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { PlaylistDataService } from '../services/playlist-data.service';
+import { of } from 'rxjs';
 
 @Injectable()
 export class SongEffects {
@@ -16,7 +17,11 @@ export class SongEffects {
           map(response => actions.songAddedSuccessfully({
             oldId: orignalAction.payload.id,
             payload: response
-          }))
+          })),
+          catchError(response => of(actions.songAddedFailure({
+            oldId: orignalAction.payload.id,
+            errorMessage: `Sorry, could not the song ${orignalAction.payload.title}`
+          })))
         )
       )
     )
