@@ -1,12 +1,16 @@
+import * as fromErrors from './errors.reducer';
 import * as fromCounter from './counter.reducer';
-import { createSelector } from '@ngrx/store';
+import { ActionReducerMap, createSelector } from '@ngrx/store';
 import * as models from '../models';
+
 export interface AppState {
   counter: fromCounter.CounterState;
+  errors: fromErrors.ErrorState;
 }
 
-export const reducers = {
-  counter: fromCounter.reducer
+export const reducers: ActionReducerMap<AppState> = {
+  counter: fromCounter.reducer,
+  errors: fromErrors.reducer
 };
 
 
