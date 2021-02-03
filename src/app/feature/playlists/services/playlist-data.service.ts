@@ -11,6 +11,16 @@ export class PlaylistDataService {
 
   constructor(private http: HttpClient) { }
 
+  addASong(request: SongEntity): Observable<SongEntity> {
+    const toSend = {
+      title: request.title,
+      artist: request.artist,
+      album: request.album
+    };
+    return this.http.post<SongEntity>(this.baseUrl, toSend);
+  }
+
+
   getAll(): Observable<SongEntity[]> {
     return this.http.get<PlaylistsResponse>(this.baseUrl)
       .pipe(

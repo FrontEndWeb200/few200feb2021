@@ -3,6 +3,7 @@ import { SongEntity } from '../reducers/songs.reducer';
 
 
 let currentId = 1;
+// Initiating action
 export const songAdded = createAction(
   '[playlists songs] song added request',
   ({ title, artist, album }: { title: string, artist: string, album?: string }) => ({
@@ -14,6 +15,18 @@ export const songAdded = createAction(
     } as SongEntity
   })
 );
+// Win!
+export const songAddedSuccessfully = createAction(
+  '[playlist songs] song added successfully',
+  props<{ oldId: string, payload: SongEntity }>()
+);
+
+// Lose!
+export const songAddedFailure = createAction(
+  '[playlist songs] song added failure',
+  props<{ oldId: string, errorMessage: string }>()
+);
+
 
 // "Initiating Action"
 export const loadSongs = createAction(
