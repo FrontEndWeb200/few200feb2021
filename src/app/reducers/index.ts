@@ -22,6 +22,10 @@ export const reducers: ActionReducerMap<AppState> = {
 function selectCounterBranch(state: AppState): fromCounter.CounterState {
   return state.counter;
 }
+
+function selectErrorsBranch(state: AppState): fromErrors.ErrorState {
+  return state.errors;
+}
 // 3. Any helpers you might need
 // function selectCountCurrent(state: AppState): number {
 //   return state.counter.current;
@@ -70,4 +74,15 @@ export const selectCounterDashboard = createSelector(
   selectCountCurrent,
   selectCounterBy,
   (current, by) => ({ by, current } as models.CounterDashboard)
+);
+
+
+export const selectHasError = createSelector(
+  selectErrorsBranch,
+  b => b.hasError
+);
+
+export const selectErrorMessage = createSelector(
+  selectErrorsBranch,
+  b => b.message
 );

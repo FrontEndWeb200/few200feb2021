@@ -15,6 +15,7 @@ import { CountbyComponent } from './components/countby/countby.component';
 import { EffectsModule } from '@ngrx/effects';
 import { CounterEffects } from './effects/counter.effects';
 import { PlaylistsModule } from './feature/playlists/playlists.module';
+import { ErrorDisplayComponent } from './components/error-display/error-display.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { PlaylistsModule } from './feature/playlists/playlists.module';
     NavComponent,
     DashboardComponent,
     CounterComponent,
-    CountbyComponent
+    CountbyComponent,
+    ErrorDisplayComponent
   ],
   imports: [
     BrowserModule,
