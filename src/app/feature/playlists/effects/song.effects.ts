@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as actions from '../actions/song.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { PlaylistDataService } from '../services/PlaylistDataService';
 import { map, switchMap } from 'rxjs/operators';
+import { PlaylistDataService } from '../services/playlist-data.service';
 
 @Injectable()
 export class SongEffects {

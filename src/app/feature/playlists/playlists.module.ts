@@ -9,10 +9,11 @@ import { featureName, reducers } from './reducers';
 import { SongEntryFormComponent } from './components/song-entry-form/song-entry-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { PlaylistDataService } from './services/PlaylistDataService';
+
 import { EffectsModule } from '@ngrx/effects';
 import { SongEffects } from './effects/song.effects';
 import { AppEffects } from './effects/app.effects';
+import { PlaylistDataService } from './services/playlist-data.service';
 
 @NgModule({
   declarations: [PlaylistsComponent, SongEntryComponent, SongListComponent, SongSummaryListComponent, SongEntryFormComponent],
