@@ -1,10 +1,11 @@
 <form [formGroup]="form"
-      (ngSubmit)="submit()">
+      (ngSubmit)="submit(me)">
 
   <div class="form-group">
     <label for="title">Title</label>
     <input class="form-control"
            name="title"
+           #me
            formControlName="title">
     <div class="alert alert-danger"
          *ngIf="title.invalid && (title.touched || title.dirty)">
