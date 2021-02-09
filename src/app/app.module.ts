@@ -16,6 +16,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { CounterEffects } from './effects/counter.effects';
 import { PlaylistsModule } from './feature/playlists/playlists.module';
 import { ErrorDisplayComponent } from './components/error-display/error-display.component';
+import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { ErrorDisplayComponent } from './components/error-display/error-display.
     DashboardComponent,
     CounterComponent,
     CountbyComponent,
-    ErrorDisplayComponent
+    ErrorDisplayComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
